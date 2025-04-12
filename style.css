@@ -6,6 +6,12 @@
     font-optical-sizing: auto;
     font-style: normal;
   }
+
+  .dancing-script {
+    font-family: "Dancing Script", cursive;
+    font-optical-sizing: auto;
+    font-style: normal;
+  }    
   
 
 .background-color {
@@ -25,9 +31,16 @@
     background-color: #E6533C;
     color: #ffffff;
     text-align: center;
-    border-radius: 46px;
+    font-size: 1.125rem;
+    font-weight: 600;
+    border-radius: 42px;
+    width: 225px;
+    height: 55px;
 }
+.text-primary-color{
+    color: rgba(255, 255, 255, 0.5);
 
+}
 /* Nav related styles */
 
 .nav-bar{
@@ -62,6 +75,70 @@
     margin: 14px 0px;
 }
 .nav-list-btn{
+    background-color: #E6533C;
+    color: #ffffff;
+    text-align: center;
+    border-radius: 46px;
     padding: 8px 25px;
     margin: 2px 0px;
+}
+
+/* Banner related styles */
+
+.banner-container{
+    margin: 0 auto;
+    gap: 200px;
+    width: 1200px;
+}
+.banner-content{
+    max-width: 600px;
+}
+.banner-title{
+    color: #ffffff;
+    font-size: 4.875rem;
+}
+.banner-img{
+    width: 350px;
+    height: 580px;
+}
+.download-btn{
+    border: 1px solid white;
+    background-color: transparent;
+}
+.banner-card1{
+    color: white;
+    background-color: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    width: 205px;
+    height: 95px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 2px;
+    margin-left: -120px;
+    margin-top: -140px;
+    
+}
+.banner-card-circle{
+    background-color: #E6533C;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+
+}
+.banner-card2{
+    color: white;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    width: 205px;
+    height: 95px;
+    margin-left: 250px;
+    margin-top: -400px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
 }
