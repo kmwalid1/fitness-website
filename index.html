@@ -128,13 +128,192 @@
                 <img src="images/exercise1.jpg" alt="">
                 <img src="images/exercise2.png" alt="">
                 <img src="images/exercise3.png" alt="">
-                
+
                 <img src="images/exercise4.png" alt="">
                 <img src="images/exercise5.jpg" alt="">
                 <img src="images/exercise6.jpg" alt="">
             </div>
         </section>
+
+        <!-- BMI Section -->
+
+        <div class="bmi-container">
+            <div class="bmi-div">
+                <div class="chart-section">
+                    <h1>BMI Calculator Chart</h1>
+
+                    <table>
+                        <tr>
+                            <th>BMI</th>
+                            <th>Weight Status</th>
+                        </tr>
+                        <tr>
+                            <td>Below 18.5</td>
+                            <td>Underweight</td>
+                        </tr>
+                        <tr>
+                            <td>18.5 - 24.9</td>
+                            <td>Healthy</td>
+                        </tr>
+                        <tr>
+                            <td>25.0 - 29.9</td>
+                            <td>Overweight</td>
+                        </tr>
+                        <tr>
+                            <td>30.0 and Above</td>
+                            <td>Obese</td>
+                        </tr>
+                    </table>
+
+                </div>
+
+                <div class="calculator-section">
+                    <div class="section-title">Calculate your BMI</div>
+
+                    <p class="mission">We believe fitness should be accessible to everyone, everywhere, regardless of
+                        income or access to a gym.</p>
+
+                    <div class="input-row">
+                        <div class="input-group">
+                            <label for="height">Height/cm</label>
+                            <input type="number" id="height" placeholder="Enter height in cm">
+                        </div>
+                        <div class="input-group">
+                            <label for="weight">Weight/kg</label>
+                            <input type="number" id="weight" placeholder="Enter weight in kg">
+                        </div>
+                    </div>
+
+                    <div class="input-row">
+                        <div class="input-group">
+                            <label for="age">Age</label>
+                            <input type="number" id="age" placeholder="Enter your age">
+                        </div>
+                        <div class="input-group">
+                            <label for="sex">Sex</label>
+                            <select id="sex">
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="activity">Activity Factor</label>
+                        <select id="activity">
+                            <option value="1.2">Sedentary (little or no exercise)</option>
+                            <option value="1.375">Lightly active (light exercise 1-3 days/week)</option>
+                            <option value="1.55">Moderately active (moderate exercise 3-5 days/week)</option>
+                            <option value="1.725">Very active (hard exercise 6-7 days/week)</option>
+                            <option value="1.9">Extra active (very hard exercise & physical job)</option>
+                        </select>
+                    </div>
+
+                    <div class="display-flex btn-group">
+                        <button onclick="calculateBMI()">Calculate</button>
+                        <button onclick="resetForm()">Reset</button>
+                    </div>
+
+                    <div id="result"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Meet out team section -->
+
+        <section class="team-container">
+            <div class="change-habit-text team-content">
+                <h1 class="h1-shared">Meet Our Team</h1>
+                <p class="text-primary-color">We believe fitness should be accessible to everyone, everywhere,
+                    regardless of income or access to a gym.</p>
+            </div>
+            <div class="team-image">
+                <div class="image-wrapper">
+                    <img src="images/trainer1.png" alt="">
+                    <div class="text-overlay">Jerome Bell</div>
+
+                </div>
+                <div class="image-wrapper">
+
+                    <img src="images/trainer2.png" alt="">
+                    <div class="text-overlay">Cameron Williamson</div>
+
+                </div>
+                <div class="image-wrapper">
+                    <img src="images/trainer3.png" alt="">
+                    <div class="text-overlay">Darrell Steward</div>
+
+                </div>
+                <div class="image-wrapper">
+                    <img src="images/trainer4.png" alt="">
+                    <div class="text-overlay">Dianne Russell</div>
+
+                </div>
+                <div class="image-wrapper">
+                    <img src="images/trainer5.png" alt="">
+                    <div class="text-overlay">Cody Fisher</div>
+
+                </div>
+                <div class="image-wrapper">
+                    <img src="images/trainer6.png" alt="">
+                    <div class="text-overlay">Theresa Webb</div>
+
+                </div>
+            </div>
+        </section>
+
     </main>
+
+
+    <script>
+        function calculateBMI() {
+            const height = parseFloat(document.getElementById('height').value);
+            const weight = parseFloat(document.getElementById('weight').value);
+            const age = document.getElementById('age').value;
+            const sex = document.getElementById('sex').value;
+            const activity = document.getElementById('activity').value;
+
+            if (isNaN(height) || isNaN(weight) || height <= 0 || weight <= 0) {
+                alert("Please enter valid height and weight values");
+                return;
+            }
+
+            const heightInMeters = height / 100;
+            const bmi = weight / (heightInMeters * heightInMeters);
+            const roundedBMI = bmi.toFixed(1);
+
+            let category = "";
+            if (bmi < 18.5) category = "Underweight";
+            else if (bmi <= 24.9) category = "Healthy";
+            else if (bmi <= 29.9) category = "Overweight";
+            else category = "Obese";
+
+            const resultDiv = document.getElementById('result');
+            resultDiv.style.display = "block";
+            resultDiv.innerHTML = `
+                <p>Your BMI: <strong>${roundedBMI}</strong></p>
+                <p>Weight Status: <strong>${category}</strong></p>
+                <p>Age: <strong>${age}</strong></p>
+                <p>Sex: <strong>${sex.charAt(0).toUpperCase() + sex.slice(1)}</strong></p>
+                <p>Activity Level: <strong>${document.getElementById('activity').options[document.getElementById('activity').selectedIndex].text}</strong></p>
+            `;
+        }
+
+        function resetForm() {
+            // Clear all inputs
+            document.getElementById('height').value = '';
+            document.getElementById('weight').value = '';
+            document.getElementById('age').value = '';
+            document.getElementById('sex').value = 'male';
+            document.getElementById('activity').value = '1.2';
+
+            // Hide and clear results
+            const resultDiv = document.getElementById('result');
+            resultDiv.style.display = "none";
+            resultDiv.innerHTML = '';
+        }
+    </script>
 </body>
 
 </html>
