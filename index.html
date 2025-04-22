@@ -212,7 +212,7 @@
 
                     <div class="display-flex btn-group">
                         <button onclick="calculateBMI()">Calculate</button>
-                        <button onclick="resetForm()">Reset</button>
+                        <button class="download-btn" onclick="resetForm()">Reset</button>
                     </div>
 
                     <div id="result"></div>
@@ -263,9 +263,34 @@
             </div>
         </section>
 
+        <!-- Footer -->
+         <footer>
+            <div class="footer-container max-width">
+                <div>
+                    <h3 class="footer-title nav-title">Fitness</h3>
+                    <p class="footer-p text-primary-color">We believe fitness should be accessible to everyone, everywhere, regardless of income or access to a gym. With hundreds of professional workouts.</p>
+                </div>
+                    <div class="footer-content"> 
+                        <h1>Get Started</h1>
+                        <p class="footer-txt">Service</p>
+                        <p class="footer-txt">Contact Us</p>
+                        <p class="footer-txt">Affiliate Program</p>
+                        <p class="footer-txt">About Us</p>
+                    </div>
+                    <div class="footer-content">
+                        <h1>Get Started</h1>
+                        <p class="footer-txt">Fitness</p>
+                        <p class="footer-txt">Platform</p>
+                        <p class="footer-txt">Workout Library</p>
+                        <p class="footer-txt">App Design</p>
+                    </div>
+            </div>
+            <p class="copyright">All right reserved @Fitness 2025</p>
+         </footer>
+
     </main>
 
-
+    <!-- BMI Script -->
     <script>
         function calculateBMI() {
             const height = parseFloat(document.getElementById('height').value);
