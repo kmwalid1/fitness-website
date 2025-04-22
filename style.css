@@ -397,6 +397,9 @@ button:hover {
     background-color: rgb(226, 30, 0);
     transform: translateY(-2px);
 }
+button:active{
+    background-color: bisque;
+}
 
 .mission {
     font-size: 14px;
@@ -499,6 +502,14 @@ button:hover {
     color: rgba(255, 255, 255, 0.5);
     font-weight: 400;
     font-size: 1.25rem;
+    cursor: pointer;
+  }
+  .footer-txt:hover{
+    color: rgb(226, 30, 0);
+    transform: translateY(2px);
+  }
+  .footer-txt:active{
+    color: white;
   }
   .copyright{
     color: rgba(255, 255, 255, 0.5);
